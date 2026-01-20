@@ -6,10 +6,11 @@
     overflow: hidden;
 }
 
-html{
+html {
     width: 100vw;
     height: 100vh;
 }
+
 body {
     width: 100vw;
     height: 100vh;
@@ -34,8 +35,18 @@ body {
     font-family: 'Montserrat';
     font-weight: 500;
     font-size: 15px;
+
+    outline: 1px dashed #005eff94;;
+    outline-offset: -10px;
 }
 
+.container label {
+    width: 100px;
+    height: 40px;
+    
+    position: absolute;
+    z-index: 100;
+}
 .container>* {
     width: 100%;
     height: 50%;
@@ -45,8 +56,6 @@ body {
     align-items: center;
     flex-flow: column nowrap;
     gap: 10px;
-
-    border: 1px solid rgb(192, 132, 58);
 }
 
 .menuBlock__block {
@@ -100,7 +109,7 @@ body {
 
     border-radius: 50%;
     background-color: white;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 
     transition: all 0.3s ease;
 }
@@ -111,8 +120,46 @@ body {
 }
 
 .menuBlock__toggle--check:checked::before {
-    left: calc(100% - 27px); 
+    left: calc(100% - 27px);
     transform: translateX(0);
+}
+
+.progressBlock__circle {
+    width: 200px;
+    height: 200px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #eaf0f6;
+    border-radius: 100%;
+}
+
+.progressBlock__circle--active {
+    background: conic-gradient(#005cff 0deg 90deg,
+            #eaf0f6 90deg 360deg);
+    animation: progress 2s ease-in infinite;
+
+}
+
+@keyframes progress {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.progressBlock__circle::before {
+    content: '';
+    width: 170px;
+    height: 170px;
+
+    position: absolute;
+    background-color: white;
+    border-radius: 100%;
 }
 
 @media (min-width: 1024px) {
